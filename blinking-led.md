@@ -29,6 +29,7 @@ There are 40 male pins (metal pin) available to use for power, communication and
 ![pHAT-board-plugged-into-Raspberry-pi-400](images/01-gpio-board.png)
 
 1. Collect one M-to-F pin. Take the female end (black) and insert it into the GND (ground) on the pHAT male pin.
+
 ![male-to-female-jumper-wires](images/02-male-to-female.png)
 
 2. Collect the other M-to-F pin. Take the female end (black) and insert into 21 on the pHAT male pin.
@@ -109,47 +110,47 @@ For this part of the exercise, you will be using the software [Scratch](https://
 
 16. To access the blocks associated with the pHAT, we need to add the GPIO blocks. Go the blue Add Extension icon on the lower left corner.
 
-![scratch-home-screen](images/17-add-extension.png)
+![scratch-program-select-extension](images/17-add-extension.png)
 
 17. Scroll down and select the Raspberry Pi GPIO. This will yield blocks to control the Raspberry Pi GPIO lines.
 
-![scratch-home-screen](images/18-select-gpio.png)
+![scratch-program-gpio-extention](images/18-select-gpio.png)
 
 18. If done successfully, the new icon Raspberry Pi GPIO will appear in the Blocks Palette panel.
 
-![scratch-home-screen](images/19-view-gpio.png)
+![scratch-program-new-GPIO-icon](images/19-view-gpio.png)
 
 Now let's turn on the LED! Scratch is a drag-and-drop approach to writing code. The blocks have different shapes that allow them to be built in a modular connection. 
 
 19. The first block to add is the 'when clicked'. Click on the circle "Events" and find when clicked. Drag it over into the Code Area panel.
 
-![scratch-home-screen](images/20-select-events)
+![scratch-program-select-events](images/20-select-events)
 
-![scratch-home-screen](images/21-find-set-gpio)
+![scratch-program-select-gpio](images/21-find-set-gpio)
 
 20. Next, click on the Raspberry Pi GPIO icon. Select the 'set gpio 0 to output high' block and drag it over into the Code Area panel.
 
-![scratch-home-screen](images/22-select-gpio.png)
+![scratch-program-gpio-icon](images/22-select-gpio.png)
 
 21. You'll need to choose the number of the pin you're using. Look at the GPIO m-to-f jumper wire, it is plugged into '21'. Click on the small arrow to open the drop-down selection and click on 21, this is the GPIO 21 pin.
 
-![scratch-home-screen](images/23-click-green-flag-go.png)
+![scratch-program-gpio-select-pin](images/23-click-green-flag-go.png)
 
 21. Next, click on the click on the green flag icon to run the program. You should see the LED light up!
 
-![scratch-home-screen](images/24-powered-set-up.png)
+![scratch-program-green-flag-icon-run-program](images/24-powered-set-up.png)
 
 22. To turn off the LED, click on the down arrow at the end of the block and choose 'low' from the list.
 
-![scratch-home-screen](images/25-change-gpio-low.png)
+![scratch-program-adjust-gpio-block](images/25-change-gpio-low.png)
 
 23. To flash the LED on and off every second, we have to use the 'forever' block and two 'wait 1 second' blocks. Click on the circle "Control" to get the blocks.
 
-![scratch-home-screen](images/26-program-forever.png)
+![scratch-program-new-program-entry](images/26-program-forever.png)
 
 24. Build the program as you see below. Then click on the green flag icon to run your program!
 
-![scratch-home-screen](images/28-program-complete.png)
+![scratch-program-final-program](images/28-program-complete.png)
 
 Congrats on using Scratch 3 to program your blinking LED.
 
