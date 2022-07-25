@@ -124,9 +124,9 @@ Now let's turn on the LED! Scratch is a drag-and-drop approach to writing code. 
 
 19. The first block to add is the 'when clicked'. Click on the circle "Events" and find when clicked. Drag it over into the Code Area panel.
 
-![scratch-program-select-events](images/20-select-events)
+![scratch-program-select-events](images/20-select-events.png)
 
-![scratch-program-select-gpio](images/21-find-set-gpio)
+![scratch-program-select-gpio](images/21-find-set-gpio.png)
 
 20. Next, click on the Raspberry Pi GPIO icon. Select the 'set gpio 0 to output high' block and drag it over into the Code Area panel.
 
