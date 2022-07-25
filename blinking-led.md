@@ -26,11 +26,11 @@ For this exercise, you will need the following:
 We need to make connections from the Raspberry Pi 400 circuit board: GPIO (general-purpose input-output).
 There are 40 male pins (metal pin) available to use for power, communication and hardware.
 
-![pHAT-board-plugged-into-Raspberry-pi-400](images/01-gpio-board.png)
+![pHAT-board-plugged-into-Raspberry-pi-400](images/01-gpio-board.png | width=100)
 
 1. Collect one M-to-F pin. Take the female end (black) and insert it into the GND (ground) on the pHAT male pin.
 
-![male-to-female-jumper-wires](images/02-male-to-female.png)
+![male-to-female-jumper-wires](images/02-male-to-female.png | width=100px)
 
 2. Collect the other M-to-F pin. Take the female end (black) and insert into 21 on the pHAT male pin.
 
