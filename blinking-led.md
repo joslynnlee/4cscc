@@ -37,7 +37,7 @@ There are 40 male pins (metal pin) available to use for power, communication and
 
 ## Wire to the Breadboard
 
-A breadboard is 
+A breadboard lets you insert (plug) components and have them connect through metal tracks hidden beneath the surface. This makes it MUCH easier to build circuits. 
 
 3. Take the male end of the M-to-F pin connected to GND and insert it into column (-) in row 1 of the breadboard.
 
@@ -57,9 +57,9 @@ A breadboard is
 
 ## Adding the 330 ohm resistor
 
-A resistor is 
+A resistor are components that control the flow of electrical current. Each resistor has different values measured using ohms. the higher the number of ohms, the more resistance is provided. Resistors are used to protect different components (like an light emitting diode) from drawing too much current which can result in damaging components or even the Raspberry Pi 400.
 
-7. Pick up the resistor and look at the color combination. It reads orange, red, brown gold. 
+7. Pick up the resistor and look at the color combination. It reads orange, red, brown gold. To read the resistor color codes, you can watch the video ["How to Read a Resistor"](https://www.youtube.com/watch?v=GLD7AgAYqwAv).
 
 ![330-ohm-resistor](images/08-330-ohm-resistor.png)
 
@@ -70,7 +70,7 @@ A resistor is
 
 ## Adding the LED
 
-A LED is a light emitting diode. It two legs, one is longer than the other. The longer leg is the anode, positively charged. 
+A LED is a light emitting diode. It two legs, one is longer than the other. The longer leg is the anode, positively charged.
 
 ![LED](images/10-led.png)
 
@@ -91,14 +91,78 @@ A LED is a light emitting diode. It two legs, one is longer than the other. The 
 
 ---
 ## Write a Scratch 3 program
-For this part of the exercise, you will go to the Raspberry icon, click on 
+For this part of the exercise, you will be using the software [Scratch](https://scratch.mit.edu/).
 
-14. 
+14. Go to the Raspberry icon, click on Programming and select Scratch 3. This will pop-up a new window that will go through two messages "Scratch Desktop is loading" and "Creating Project".
+
+![scratch-opening-screen](images/15-opening-scratch.png)
+
+15. The Scratch 3 program will open up to the home screen.
+
+![scratch-home-screen](images/16-scratch-opened-labeled.png)
+
+* The far left panel (A) is called the Blocks Palette. These are the available blocks for your program.
+* The next panel (B) is called the Blocks. The blocks are pre-written chunks of program code that allow you to build your program.
+* The center panel (C) is called the Code Area. This is the space where your program is build by dragging and dropping blocks from the Blocks Palette to form scripts.
+* The two icons (D) are the green flag and red stop sign. The green flag icon will run the program. The red stop sign icon will stop the program.
+* The button (E) is the Add Extension icon. This loads blocks that are part of extension features.
+
+16. To access the blocks associated with the pHAT, we need to add the GPIO blocks. Go the blue Add Extension icon on the lower left corner.
+
+![scratch-home-screen](images/17-add-extension.png)
+
+17. Scroll down and select the Raspberry Pi GPIO. This will yield blocks to control the Raspberry Pi GPIO lines.
+
+![scratch-home-screen](images/18-select-gpio.png)
+
+18. If done successfully, the new icon Raspberry Pi GPIO will appear in the Blocks Palette panel.
+
+![scratch-home-screen](images/19-view-gpio.png)
+
+Now let's turn on the LED! Scratch is a drag-and-drop approach to writing code. The blocks have different shapes that allow them to be built in a modular connection. 
+
+19. The first block to add is the 'when clicked'. Click on the circle "Events" and find when clicked. Drag it over into the Code Area panel.
+
+![scratch-home-screen](images/20-select-events)
+
+![scratch-home-screen](images/21-find-set-gpio)
+
+20. Next, click on the Raspberry Pi GPIO icon. Select the 'set gpio 0 to output high' block and drag it over into the Code Area panel.
+
+![scratch-home-screen](images/22-select-gpio.png)
+
+21. You'll need to choose the number of the pin you're using. Look at the GPIO m-to-f jumper wire, it is plugged into '21'. Click on the small arrow to open the drop-down selection and click on 21, this is the GPIO 21 pin.
+
+![scratch-home-screen](images/23-click-green-flag-go.png)
+
+21. Next, click on the click on the green flag icon to run the program. You should see the LED light up!
+
+![scratch-home-screen](images/24-powered-set-up.png)
+
+22. To turn off the LED, click on the down arrow at the end of the block and choose 'low' from the list.
+
+![scratch-home-screen](images/25-change-gpio-low.png)
+
+23. To flash the LED on and off every second, we have to use the 'forever' block and two 'wait 1 second' blocks. Click on the circle "Control" to get the blocks.
+
+![scratch-home-screen](images/26-program-forever.png)
+
+24. Build the program as you see below. Then click on the green flag icon to run your program!
+
+![scratch-home-screen](images/28-program-complete.png)
+
+Congrats on using Scratch 3 to program your blinking LED.
 
 ## Write a Python 3 program
 
+For this part of the exercise, you will be using the software [Thonny Python IDE](https://thonny.org/).
 
+25. Go to the Raspberry icon, click on Programming and select Thonny Python IDE. This will pop-up a new window. The top panel "<untitled>" is the code editor. The bottom panel is the shell to execute the script.
 
+![thonny-home-screen](images/29-thonny-opened.png)
+
+26. Copy the code below and paste into the untitled code editor.
+    
 ```python
 from gpiozero import LED
 from time import sleep
@@ -111,3 +175,15 @@ while True:
     led.off()
     sleep(1.0)
 ```
+![code-in-code-editor](images/30-gpio-code.png)
+
+> gpiozero is called a library with one part called LED, made to work with LEDs. The variable led lets the library know which GPIO pin (21) the LED is connected to.
+
+27. Save the program with the name "blinking-led". This will switch the file to a .py or .python file ending. Then click on "Run" to run the code.
+
+![run-code-in-shell](images/31-run-code.png)
+
+----
+## Reflection
+
+Look at the code above and adjust the values in `sleep(1.0)' of the python program or 'wait X second' in Scratch. How could you speed up or slow down the LED?
