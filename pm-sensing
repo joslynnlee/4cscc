@@ -1,0 +1,104 @@
+# Particulate matter sensing to assess indoor air quality
+
+## Introduction
+
+In this lesson you will learn how to set up your PMS5003 particular matter, or
+PM, sensor with the hardware provided. You will learn how to connect it to your
+Raspberry Pi 400 and the basics of how to get the sensor readings from it using
+Python 3. If you are interested in learning more about particulate matter
+sensing see [this](https://en.wikipedia.org/wiki/Particulates) page.
+
+## Parts list
+
+For this exercise you'll need:
+* [Raspberry Pi 400](https://www.sparkfun.com/products/17377) computer
+* Sparkfun [Qwiic pHAT Extension](https://www.sparkfun.com/products/17512)
+* PMS5003 particular matter sensor
+* [Breadboard](https://www.sparkfun.com/products/12002)
+* 4 [male to female jumper wires](https://www.sparkfun.com/products/9385)
+
+## Assembly
+
+### 1. Get the sensor
+
+You should have a PM sensor with the cable already attached as shown. On the
+other end of the cable there should be a green board with 8 pins.
+![PM Sensor](images/pm-sensor-sensor.jpeg)
+
+### 2. Connect the sensor to the breadboard
+You should insert the 8 pins along a column on the breadboard as shown below.
+Then use the male ends of the 4 male to female jumper wires on the same rows of
+the breadboard as the pins labeled TXD, RXD, GND, and VCC.
+![Breadboard](images/pm-sensor-breadboard.jpeg)
+
+### 3. Connect the breadboard to the pHAT
+Connect the female end of the GND wire to GND on the pHAT. Connect the female
+end of the VCC wire to 5V on the pHAT. Connect the female end of the TXD wire
+to 14/TXO on the pHAT. Connect the female end of the RXD wire to 15/RXI on the
+pHAT.
+![pHAT](images/pm-sensor-pHAT.jpeg)
+
+### 4. Should be done
+You should now have a complete product that looks like the following with the
+pm sensor wired to the breadboard and the breadboard wired to the pHAT.
+![Finished](images/pm-sensor-complete.jpeg)
+
+## Python 3 code
+
+We will be using the program Terminal. The program is the black icon on the home toolbar in the top left corner.
+
+```{tip}
+To make the text larger, you can hold down the following keys CRTL and SHIFT then press the PLUS + key. To make the text smaller, press the MINUS - key.
+```
+
+After the command prompt `$`, type or copy the following command and press enter:
+
+```
+source ~/code/4cscc-ln/venv/bin/activate
+```
+
+```{tip}
+When you type, you can only use your keyboard arrow keys to move along the command line. Unfortunately, the mouse cursor cannot be used. Hold down CTRL and press the A key to toggle to the front of the line. Hold down CTRL and press the E key to toggle to the end the line.
+```
+
+If this works you should see `(venv)` on the far left of the text in
+your terminal.
+
+Then, enter the following command to start an ipython terminal:
+
+```
+ipython
+```
+Here the `In[1]: ` will appear. You will be able to enter new commands.
+
+Finally, copy paste the following code into the ipython terminal. This will collect data from your PM sensor every 1 second and display the data on the screen. It will run until you press "Control-c" (i.e., press the "control" and "c" keys at the same time).
+
+```python
+# Import the library we use to access the sensor
+from pms5003 import PMS5003
+# We are going to wait between sensor readings so we don't spam too many
+from time import sleep
+
+
+# Create an object representing our sensor
+pms5003 = PMS5003()
+
+# Repeat this as long as the program is running
+while True:
+    # Read the data from the sensor
+    pms_reading = pms5003.read()
+
+    # Access and print three specific pieces of data returned by the PM sensor
+    print("PM 1.0: %d" % pms_reading.pm_ug_per_m3(1.0))
+    print("PM 2.5: %d" % pms_reading.pm_ug_per_m3(2.5))
+    print("PM 10.0: %d" % pms_reading.pm_ug_per_m3(10))
+    print("")
+
+    # Wait for one second before attempting to read from the sensor again
+    sleep(1)
+
+```
+
+This code was adapted from the files found
+[here](https://github.com/pimoroni/pms5003-python/tree/master/examples). This
+repo contains the source for the pms5003 module we use to read from the sensor.
